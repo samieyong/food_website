@@ -1,0 +1,458 @@
+/* //////General Styles////// */
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+}
+html {
+   font-size: 82.5%;
+}
+:root {
+   --primary: #003049;
+   --secondary: #f77f00;
+   --secondary2: #fcbf49;
+   --light-secondary: #eae2b7;
+}
+input:focus {
+   outline-color: var(--secondary);
+}
+.container {
+   width: 95%;
+   margin: 0 auto;
+}
+
+/* //////Navigation Section////// */
+nav {
+   width: 100%;
+   height: 1rem;
+   background-color: var(--primary);
+   box-shadow: 0 0.3rem 0.5rem #fff;
+   display: grid;
+   place-items: center;
+   position: fixed;
+   top: 0;
+   transition: height 0.8s;
+   z-index: 20;
+}
+nav.change {
+   height: 10rem;
+   transition: height 0.8s;
+}
+nav::before {
+   content: '';
+   width: 3rem;
+   height: 4rem;
+   border-radius: 1rem 1rem 0.5rem 0.5rem;
+   background-color: var(--primary);
+   position: absolute;
+   top: 2rem;
+   left: 3rem;
+   transition: top 0.8s 0.5s;
+}
+nav.change::before {
+   top: 11rem;
+}
+nav::after {
+   content: '';
+   width: 0.8rem;
+   height: 11rem;
+   background-color: var(--primary);
+   position: absolute;
+   left: 4rem;
+   top: -8rem;
+   transition: all 0.8s 0.5s;
+   z-index: -1;
+}
+nav.change::after {
+   top: 0;
+}
+.nav-menu {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   column-gap: 3rem;
+   flex-wrap: wrap;
+   text-align: center;
+   visibility: hidden;
+   opacity: 0;
+   transition: all 1s;
+}
+.change .nav-menu {
+   visibility: visible;
+   opacity: 1;
+   transition: opacity 1s 0.5s;
+}
+.nav-menu i {
+   font-size: 4rem;
+}
+.nav-menu p {
+   font-size: 1.2rem;
+   margin: 1rem 0;
+   letter-spacing: 0.1rem;
+   font-weight: bold;
+}
+.nav-icon {
+   color: var(--light-secondary);
+}
+
+.nav-icon:hover {
+   color: var(--secondary2);
+   text-decoration: underline;
+}
+
+/* //////Header Section////// */
+.header {
+   width: 100%;
+   height: 100vh;
+   background-color: var(--secondary2);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+}
+
+h1 {
+   margin-top: 5rem;
+   font-size: 12rem;
+   color: var(--primary);
+}
+.slide__show {
+   width: 30rem;
+   height: 30rem;
+   position: relative;
+}
+.slide__show img {
+   width: 30rem;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: scale(0);
+   transition: transform 1s;
+}
+.slide__show img.change {
+   transform: scale(1);
+   transition: transform 1s;
+}
+
+/* //////Popular Section////// */
+
+.section-2 {
+   background-color: var(--light-secondary);
+   text-align: center;
+   padding: 5rem;
+}
+.popular img {
+   width: 20rem;
+}
+.popular h2 {
+   font-size: 5rem;
+   margin: 2rem 0;
+   color: var(--primary);
+}
+.card {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   row-gap: 4rem;
+   padding: 7rem 0;
+}
+.card a {
+   background-color: var(--secondary);
+   padding: 2rem;
+   position: relative;
+   box-shadow: 0.5rem 0.5rem 1rem var(--primary);
+   transition: all 0.3s;
+   margin: 0 2rem;
+}
+.card a:hover {
+   transform: translateY(-3rem);
+   box-shadow: 1rem 1rem 2rem var(--primary), -1rem -1rem 3rem var(--primary);
+   filter: brightness(1.2);
+}
+.card a:after {
+   content: '';
+   width: 1rem;
+   height: 100%;
+   position: absolute;
+   background-color: #fc982d;
+   top: 0;
+   left: -1rem;
+   transform: skewY(45deg);
+   transform-origin: right;
+}
+.card a:before {
+   content: '';
+   width: 100%;
+   height: 1rem;
+   position: absolute;
+   background-color: #fc982d;
+   top: -1rem;
+   left: 0;
+   transform: skewX(45deg);
+   transform-origin: bottom;
+}
+h3 {
+   font-size: 3rem;
+   color: var(--primary);
+   margin: 1rem;
+   text-shadow: 0.1rem 0.1rem 0.3rem var(--secondary2);
+}
+.card button {
+   font-size: 1.4rem;
+   font-weight: bold;
+   text-transform: uppercase;
+   letter-spacing: 0.1rem;
+   width: 90%;
+   padding: 1rem 0;
+   background-color: var(--secondary2);
+   cursor: pointer;
+   color: var(--primary);
+   margin-top: 2rem;
+   box-shadow: 0.2rem 0.2rem 0.5rem var(--primary);
+}
+.card button:hover {
+   color: var(--light-secondary);
+   background-color: var(--primary);
+}
+
+/* //////Gallery Section////// */
+.section-3 {
+   background-color: var(--secondary2);
+   padding: 5rem;
+   text-align: center;
+}
+.gallery-wrapper {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 3rem;
+}
+.section-3 h2 {
+   font-size: 5rem;
+   margin: 2rem 0;
+   color: var(--primary);
+}
+.gallery-bg {
+   height: 30rem;
+   border: 0.2rem solid var(--secondary);
+   box-shadow: 0.5rem 0.5rem 1rem rgb(63, 63, 63);
+   position: relative;
+}
+.gallery::after {
+   content: '';
+   width: 0.4rem;
+   height: 0;
+   position: absolute;
+   top: 0;
+   left: 3rem;
+   background-color: var(--light-secondary);
+   transition: height 0.5s 0.5s;
+}
+.show.gallery::after {
+   height: 100%;
+}
+.gallery::before {
+   content: '';
+   width: 0;
+   height: 0.4rem;
+   position: absolute;
+   top: 6rem;
+   left: 0;
+   z-index: 1;
+   background-color: var(--light-secondary);
+   transition: width 0.5s 0.5s;
+}
+.show::before {
+   width: 100%;
+}
+.gallery {
+   position: relative;
+}
+.gallery-bg {
+   cursor: pointer;
+}
+.show .gallery-bg:hover {
+   filter: blur(0.4rem);
+}
+.gallery h3,
+.gallery p {
+   text-align: left;
+   position: absolute;
+   color: var(--light-secondary);
+}
+.gallery h3 {
+   top: 1rem;
+   left: 3rem;
+   padding: 0;
+   visibility: hidden;
+   opacity: 0;
+   transition: all 1s;
+   text-shadow: 0.1rem 0.1rem 0.2rem var(--primary);
+}
+.show h3 {
+   visibility: visible;
+   opacity: 1;
+}
+.gallery p {
+   font-size: 1.4rem;
+   bottom: 4rem;
+   left: 4rem;
+   width: 75%;
+   visibility: hidden;
+   opacity: 0;
+   text-shadow: 0.1rem 0.1rem var(--primary);
+   transition: all 1s;
+   font-weight: bold;
+   letter-spacing: 0.1rem;
+}
+.show p {
+   visibility: visible;
+   opacity: 1;
+}
+
+.bg-1 {
+   background: url(./images/gallery_1.jpg) no-repeat;
+   background-size: cover;
+}
+.bg-2 {
+   background: url(./images/gallery_2.jpg) no-repeat;
+   background-size: cover;
+}
+.bg-3 {
+   background: url(./images/gallery_3.jpg) no-repeat;
+   background-size: cover;
+}
+.bg-4 {
+   background: url(./images/gallery_4.jpg) no-repeat;
+   background-size: cover;
+}
+.bg-5 {
+   background: url(./images/gallery_5.jpg) no-repeat;
+   background-size: cover;
+}
+.bg-6 {
+   background: url(./images/gallery_6.jpg) no-repeat;
+   background-size: cover;
+}
+
+/* //////Footer Section////// */
+footer {
+   background-color: var(--primary);
+   padding: 2rem;
+   height: 15rem;
+   position: relative;
+}
+.footer {
+   display: flex;
+   justify-content: space-between;
+}
+footer h3 {
+   font-size: 3rem;
+   color: var(--secondary);
+   text-shadow: 0.05rem 0.05rem var(--light-secondary);
+   margin: 1rem 0;
+}
+footer p {
+   font-size: 1.4rem;
+   color: var(--light-secondary);
+   letter-spacing: 0.1rem;
+}
+.sign-up input {
+   padding: 1rem;
+}
+.sign-up button {
+   padding: 1rem;
+   color: var(--primary);
+   background-color: var(--secondary);
+   border: 0.1rem solid var(--light-secondary);
+   box-shadow: none;
+}
+.copy-right {
+   position: absolute;
+   bottom: 1rem;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+/* //////Responsive Section////// */
+
+@media only screen and (max-width: 1366px) {
+   html {
+      font-size: 62.5%;
+   }
+}
+
+@media only screen and (max-width: 962px) {
+   .gallery-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .card {
+      row-gap: 8rem;
+   }
+}
+@media only screen and (max-width: 668px) {
+   .card {
+      flex-direction: column;
+   }
+   .gallery-wrapper {
+      grid-template-columns: 1fr;
+   }
+   footer {
+      height: fit-content;
+   }
+   .footer {
+      flex-direction: column;
+      padding-bottom: 5rem;
+   }
+   .sign-up {
+      margin-top: 2rem;
+   }
+}
+@media only screen and (max-width: 600px) {
+   nav.change {
+      height: 30rem;
+   }
+   .change .nav-menu {
+      width: 30rem;
+   }
+   nav.change::after {
+      height: 32rem;
+   }
+   nav.change::before {
+      top: 31rem;
+   }
+   nav::before {
+      width: 2rem;
+      height: 3rem;
+   }
+   nav::after {
+      width: 0.5rem;
+      left: 3.7rem;
+   }
+}
+@media only screen and (max-width: 400px) {
+   .section-3 {
+      padding: 1rem;
+   }
+   .section-2 {
+      padding: 1rem;
+   }
+   h1 {
+      font-size: 8rem;
+   }
+}
+@media only screen and (max-width: 320px) {
+   .slide__show img,
+   .slide__show {
+      width: 22rem;
+   }
+   .change .nav-menu {
+      width: 25rem;
+   }
+   h1 {
+      font-size: 6rem;
+   }
+   h2 {
+      font-size: 4rem !important;
+   }
+}
